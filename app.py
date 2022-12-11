@@ -21,10 +21,29 @@ from scipy import interp
 
 def run():
     
+    st.title('Machine Learning Algorithm to predict whether a stock will close up or down the following day')
+    
+    st.header('Options listed below are the top ten stocks, sorted by volume')
+    
+    st.write('***Disclaimer***: This is a school project, and not intended for use on the actual market. ',
+             'I am not a registered investment, legal or tax advisor or broker / dealer. All investment / ',
+             'financial opinions expressed below are from the personal research and experience of Joseph Kern',
+             ' and are intended as educational material. Although best efforts are made to ensure that all',
+             ' information is accurate and up to date, occasionally unintended errors and misprint may occur.',
+             'DO NOT MAKE INVESTMENTS BASED SOLELY OFF THE RESULTS OF THE ALGORITHM.')
+    
+    st.write('\n=================================================================\n')
+    st.write('\n')
+    st.write('\n')
+    st.header('What Stock would you like to predict for tomorrow?')
+    
     ticker = st.radio(
-        "What stock would you like to predict for tomorrow?",
+        "",
         ('Tesla', 'Apple', 'Amazon', 'Advanced Micro Devices', 'Carvana Co', 
          'Nvidia', 'Lucid Group', 'Ford', 'Carnival Corporation', 'Bank of America'))
+    
+    st.write('\n')
+    st.write('\n')
     
     ### Choose from top 10 traded stocks by volume
     
@@ -60,8 +79,9 @@ def run():
         string = 'https://query1.finance.yahoo.com/v7/finance/download/BAC?period1=1639236220&period2=1670772220&interval=1d&events=history&includeAdjustedClose=true'
         
     
-    
     stockdf = pd.read_csv(string)
+    
+    st.write('Currently Closed at: ', stockdf['Close'][len(stockdf) - 1])
     
     
     #Drop Date column as it is not important to analysis
@@ -109,15 +129,17 @@ def run():
     
     
     ps = ''
-    ps += ticker
+    
     
     if clf.predict(todx)[0] == 0:
         ps = '\'s price is predicted to fall tomorrow.\n'
     else:
         ps = '\'s price is predicted to rise tomorrow.\n'
     
-    
-    st.write(ps)
+    st.write(ticker, ps, ' The current daily chart over the last year is shown below.')
+    plotdf = pd.DataFrame()
+    plotdf['Y'] = stockdf['Close']
+    st.line_chart(plotdf)
 
 
 if __name__ == '__main__':
