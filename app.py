@@ -132,9 +132,9 @@ def run():
     
     
     if clf.predict(todx)[0] == 0:
-        ps = '\'s price is predicted to fall tomorrow.\n'
+        ps = '\'s price is predicted to ***fall*** tomorrow.\n'
     else:
-        ps = '\'s price is predicted to rise tomorrow.\n'
+        ps = '\'s price is predicted to ***rise*** tomorrow.\n'
     
     st.write(ticker, ps, ' The current daily chart over the last year is shown below.')
     plotdf = pd.DataFrame()
