@@ -9,7 +9,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn import neighbors, datasets, svm, linear_model, tree
+from sklearn import neighbors #, datasets, svm, linear_model, tree
 from sklearn.model_selection import (cross_val_score, train_test_split, 
 StratifiedKFold)
 from sklearn.metrics import (confusion_matrix, precision_recall_curve, 
