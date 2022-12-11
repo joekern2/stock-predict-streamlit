@@ -138,7 +138,7 @@ def run():
     
     st.write(ticker, ps, ' The current daily chart over the last year is shown below.')
     plotdf = pd.DataFrame()
-    plotdf['Y'] = stockdf['Close']
+    plotdf['Closing Price'] = stockdf['Close']
     st.line_chart(plotdf)
 
 
