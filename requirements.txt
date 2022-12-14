@@ -6,3 +6,4 @@ sklearn
 scikit-learn
 scipy
 matplotlib
+pickle

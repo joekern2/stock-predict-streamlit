@@ -15,6 +15,7 @@ StratifiedKFold)
 from sklearn.metrics import (confusion_matrix, precision_recall_curve, 
                              average_precision_score, roc_curve, auc)
 from scipy import interp
+import pickle
 
 
 
@@ -49,34 +50,34 @@ def run():
     
     if ticker == 'Tesla':
         # TSLA - Tesla
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1639254003&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1639254003&period2=1670790003&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Apple':
         # AAPL - Apple
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1639235859&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1639235859&period2=1670771859&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Amazon':
         # AMZN - Amazon
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1639236090&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1639236090&period2=1670772090&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Advanced Micro Devices':
         # AMD - Advanced Micro Devices
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/AMD?period1=1639236117&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/AMD?period1=1639236117&period2=1670772117&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Carvana Co':
         # CVNA - Carvana Co
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/CVNA?period1=1639236142&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/CVNA?period1=1639236142&period2=1670772142&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Nvidia':
         # NVDA - Nvidia
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=1639236157&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=1639236157&period2=1670772157&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Lucid Group':
         # LCID - Lucid Group
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/LCID?period1=1639236173&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/LCID?period1=1639236173&period2=1670772173&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Ford':
         # F - Ford
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/F?period1=1639236184&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/F?period1=1639236184&period2=1670772184&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Carnival Corporation':
         # CCL - Carnival Corporation
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/CCL?period1=1639236205&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/CCL?period1=1639236205&period2=1670772205&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Bank of America':
         # BAC - Bank of America
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/BAC?period1=1639236220&period2=1702283039&interval=1d&events=history&includeAdjustedClose=true'
+        string = 'https://query1.finance.yahoo.com/v7/finance/download/BAC?period1=1639236220&period2=1670772220&interval=1d&events=history&includeAdjustedClose=true'
         
     
     stockdf = pd.read_csv(string)
@@ -92,53 +93,100 @@ def run():
     todx = [[todx[0], todx[1], todx[2], todx[3], todx[4], todx[5]]]
     
     
+    if ticker == 'Tesla':
+        # TSLA - Tesla
+        loaded_model = pickle.load(open('tsla_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Apple':
+        # AAPL - Apple
+        loaded_model = pickle.load(open('aapl_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Amazon':
+        # AMZN - Amazon
+        loaded_model = pickle.load(open('amzn_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Advanced Micro Devices':
+        # AMD - Advanced Micro Devices
+        loaded_model = pickle.load(open('amd_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Carvana Co':
+        # CVNA - Carvana Co
+        loaded_model = pickle.load(open('cvna_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Nvidia':
+        # NVDA - Nvidia
+        loaded_model = pickle.load(open('nvda_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Lucid Group':
+        # LCID - Lucid Group
+        loaded_model = pickle.load(open('lcid_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Ford':
+        # F - Ford
+        loaded_model = pickle.load(open('f_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Carnival Corporation':
+        # CCL - Carnival Corporation
+        loaded_model = pickle.load(open('ccl_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+    elif ticker == 'Bank of America':
+        # BAC - Bank of America
+        loaded_model = pickle.load(open('bac_model.sav', 'rb'))
+        result = loaded_model.predict(todx)[0]
+
+    
+    
+    
+    
     #add column showing if the following day closes higher than the current
-    newcol = []
-    for i in range(len(stockdf)):
-        if i == len(stockdf)-1:
-            newcol.append(0)
-        else:
-            nextrow = stockdf.iloc[i+1:i+2].values.tolist()
-            currow = stockdf.iloc[i:i+1].values.tolist()
-            nextclose = nextrow[0][3]
-            curclose = currow[0][3]
-            v = 0
-            if curclose <= nextclose:
-                v = 1
-            newcol.append(v)
-            
-            
-    stockdf['bulltomorrow'] = newcol
-    
-    
-    # Drop todays numbers to get prediction for tmrw
-    stockdf.drop(stockdf.tail(1).index,inplace=True)
-    
-    
-    # split data and target
-    X = stockdf.iloc[:, :6].values
-    Y = stockdf.iloc[:, -1].values
-    
-    
-    X_train, X_test, y_train, y_test = train_test_split(X, Y, random_state=0)
-    
-    
-    n_neighbors = 5
-    clf = neighbors.KNeighborsClassifier(n_neighbors)
-    y_pred = clf.fit(X_train, y_train).predict(X_test)
-    
+# =============================================================================
+#     newcol = []
+#     for i in range(len(stockdf)):
+#         if i == len(stockdf)-1:
+#             newcol.append(0)
+#         else:
+#             nextrow = stockdf.iloc[i+1:i+2].values.tolist()
+#             currow = stockdf.iloc[i:i+1].values.tolist()
+#             nextclose = nextrow[0][3]
+#             curclose = currow[0][3]
+#             v = 0
+#             if curclose <= nextclose:
+#                 v = 1
+#             newcol.append(v)
+#             
+#             
+#     stockdf['bulltomorrow'] = newcol
+#     
+#     
+#     # Drop todays numbers to get prediction for tmrw
+#     stockdf.drop(stockdf.tail(1).index,inplace=True)
+#     
+#     
+#     # split data and target
+#     X = stockdf.iloc[:, :6].values
+#     Y = stockdf.iloc[:, -1].values
+#     
+#     
+#     X_train, X_test, y_train, y_test = train_test_split(X, Y, random_state=0)
+#     
+#     
+#     n_neighbors = 5
+#     clf = neighbors.KNeighborsClassifier(n_neighbors)
+#     y_pred = clf.fit(X_train, y_train).predict(X_test)
+#     
+# =============================================================================
     
     ps = ''
     
-    
-    if clf.predict(todx)[0] == 0:
-        ps = '\'s price is predicted to ***fall*** tomorrow.\n'
+    #clf.predict(todx)[0]
+    if result == 0:
+        ps = '\'s price is predicted to fall tomorrow.\n'
     else:
-        ps = '\'s price is predicted to ***rise*** tomorrow.\n'
+        ps = '\'s price is predicted to rise tomorrow.\n'
     
     st.write(ticker, ps, ' The current daily chart over the last year is shown below.')
     plotdf = pd.DataFrame()
-    plotdf['Closing Price'] = stockdf['Close']
+    plotdf['Y'] = stockdf['Close']
     st.line_chart(plotdf)
 
 
