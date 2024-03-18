@@ -50,34 +50,34 @@ def run():
     
     if ticker == 'Tesla':
         # TSLA - Tesla
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1639254003&period2=1770790003&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/TSLA?period1=1639254003&period2=1770790003&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Apple':
         # AAPL - Apple
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1639235859&period2=1770771859&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1639235859&period2=1770771859&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Amazon':
         # AMZN - Amazon
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1639236090&period2=1770772090&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/AMZN?period1=1639236090&period2=1770772090&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Advanced Micro Devices':
         # AMD - Advanced Micro Devices
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/AMD?period1=1639236117&period2=1770772117&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/AMD?period1=1639236117&period2=1770772117&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Carvana Co':
         # CVNA - Carvana Co
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/CVNA?period1=1639236142&period2=1770772142&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/CVNA?period1=1639236142&period2=1770772142&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Nvidia':
         # NVDA - Nvidia
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=1639236157&period2=1770772157&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/NVDA?period1=1639236157&period2=1770772157&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Lucid Group':
         # LCID - Lucid Group
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/LCID?period1=1639236173&period2=1770772173&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/LCID?period1=1639236173&period2=1770772173&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Ford':
         # F - Ford
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/F?period1=1639236184&period2=1770772184&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/F?period1=1639236184&period2=1770772184&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Carnival Corporation':
         # CCL - Carnival Corporation
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/CCL?period1=1639236205&period2=1770772205&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/CCL?period1=1639236205&period2=1770772205&interval=1d&events=history&includeAdjustedClose=true'
     elif ticker == 'Bank of America':
         # BAC - Bank of America
-        string = 'https://query1.finance.yahoo.com/v7/finance/download/BAC?period1=1639236220&period2=1770772220&interval=1d&events=history&includeAdjustedClose=true'
+        string = r'https://query1.finance.yahoo.com/v7/finance/download/BAC?period1=1639236220&period2=1770772220&interval=1d&events=history&includeAdjustedClose=true'
         
     
     stockdf = pd.read_csv(string)
