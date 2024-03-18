@@ -17,6 +17,8 @@ from sklearn.metrics import (confusion_matrix, precision_recall_curve,
 from scipy import interp
 import pickle
 
+SKLEARN_ALLOW_DEPRECATED_SKLEARN_PACKAGE_INSTALL=True
+
 
 
 
