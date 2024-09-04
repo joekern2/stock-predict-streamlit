@@ -11,6 +11,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 # import scikit-learn
 from sklearn import neighbors #, datasets, svm, linear_model, tree
+from sklearn.neighbors import _dist_metrics
 from sklearn.model_selection import (cross_val_score, train_test_split, 
 StratifiedKFold)
 from sklearn.metrics import (confusion_matrix, precision_recall_curve, 
