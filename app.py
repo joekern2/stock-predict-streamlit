@@ -9,6 +9,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import sklearn
+sklearn.__version__ '0.24.2'
+from sklearn.neighbors import _dist_metrics
 from sklearn import neighbors #, datasets, svm, linear_model, tree
 from sklearn.model_selection import (cross_val_score, train_test_split, 
 StratifiedKFold)
