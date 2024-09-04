@@ -98,8 +98,7 @@ def run():
     
     if ticker == 'Tesla':
         # TSLA - Tesla
-        loaded_model = pd.read_pickle(open('tsla_model.sav', 'rb'))
-        #loaded_model = pickle.load(open('tsla_model.sav', 'rb'))
+        loaded_model = pickle.load(open('tsla_model.sav', 'rb'))
         result = loaded_model.predict(todx)[0]
     elif ticker == 'Apple':
         # AAPL - Apple
