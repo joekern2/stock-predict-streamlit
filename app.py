@@ -5,6 +5,7 @@ Created on Sun Dec 11 13:51:42 2022
 @author: Joseph Kern
 """
 
+import python
 import streamlit as st
 import pandas as pd
 import numpy as np
